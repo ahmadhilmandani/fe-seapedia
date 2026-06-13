@@ -1,21 +1,119 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #fafcf9;
-  --color-primary-100: #f4f9f3;
-  --color-primary-200: #e9f2e7;
-  --color-primary-300: #deecdb;
-  --color-primary-400: #d3e5cf;
-  --color-primary-500: #c8dfc3;
-  --color-primary-600: #aac2a5;
-  --color-primary-700: #8ca686;
-  --color-primary-800: #6d8968;
-  --color-primary-900: #4f6d49;
-  --color-primary-950: #405e3a;
+  /* --- PRIMARY (Deep Earth Charcoal) ---
+    Base 500 menggunakan warna cokelat gelap dari footer dan teks utama.
+  */
+  --color-primary-50: #f2ede9;
+  --color-primary-100: #e5dbd3;
+  --color-primary-200: #cbbaae;
+  --color-primary-300: #b19988;
+  --color-primary-400: #947863;
+  --color-primary-500: #5b534c; /* Base baru (geser dari 700 sebelumnya) */
+  --color-primary-600: #4e4741;
+  --color-primary-700: #423c37;
+  --color-primary-800: #35302c;
+  --color-primary-900: #292522;
+  --color-primary-950: #1d1a18;
 
-  --color-base-white: #fcfdfa;
+  /* --- SECONDARY (Warm Cream) ---
+    Base 500 menggunakan warna krem kontras menengah untuk teks/border sekunder.
+  */
+  --color-secondary-50: #fcfbfa;
+  --color-secondary-100: #faf8f5;
+  --color-secondary-200: #f5eedf;
+  --color-secondary-300: #efe4ca;
+  --color-secondary-400: #e9dab5;
+  --color-secondary-500: #a4a29c; /* Base baru (geser dari 700 sebelumnya) */
+  --color-secondary-600: #8c8a85;
+  --color-secondary-700: #74736f;
+  --color-secondary-800: #5c5b58;
+  --color-secondary-900: #444341;
+  --color-secondary-950: #2c2b2a;
+
+  /* --- INFO (Muted Steel Blue) ---
+    Menggantikan warna hijau dengan warna biru baja diredam (Slate Blue) yang sangat cocok
+    dengan palet warna earthy/minimalis modern tanpa merusak estetika keseluruhan.
+  */
+  --color-info-50: #f2f5f6;
+  --color-info-100: #e4ebed;
+  --color-info-200: #cbd7dc;
+  --color-info-300: #b1c3cb;
+  --color-info-400: #98afba;
+  --color-info-500: #546d7a; /* Base Muted Steel Blue */
+  --color-info-600: #485d69;
+  --color-info-700: #3c4e58;
+  --color-info-800: #303e46;
+  --color-info-900: #242f35;
+  --color-info-950: #181f23;
+
+  /* --- WARNING (Warm Mustard / Ochre Yellow) ---
+    Dibuat lebih ke arah kuning, namun tetap mempertahankan tone hangat khas "earthy" 
+    berupa warna kuning mustard tua (Ochre) agar tidak terlalu terang/neon.
+  */
+  --color-warning-50: #fbf7ef;
+  --color-warning-100: #f7efdf;
+  --color-warning-200: #eedfbe;
+  --color-warning-300: #e4ce9e;
+  --color-warning-400: #dbbe7d;
+  --color-warning-500: #a66343; /* Base baru (Terracotta Kuning-Kecokelatan hangat) */
+  --color-warning-600: #ad8a42; /* Alternatif Kuning Mustard murni untuk text/badge */
+  --color-warning-700: #7b592b;
+  --color-warning-800: #624722;
+  --color-warning-900: #4a351a;
+  --color-warning-950: #312311;
+
+  /* --- SUCCESS (Muted Sage Green) ---
+    Warna hijau yang Anda sukai dari gambar asli kini diposisikan khusus sebagai status SUCCESS
+    dengan rentang skala warna hijau sage diredam yang estetik.
+  */
+  --color-success-50: #f0f2f1;
+  --color-success-100: #e1e6e3;
+  --color-success-200: #c4cdc7;
+  --color-success-300: #a6b5ab;
+  --color-success-400: #899c90;
+  --color-success-500: #4c5851; /* Base Hijau Sage (geser dari 700 sebelumnya) */
+  --color-success-600: #414b45;
+  --color-success-700: #363e39;
+  --color-success-800: #2b322e;
+  --color-success-900: #202522;
+  --color-success-950: #151917;
+
+  /* --- DANGER (Earthy Crimson Red) ---
+    Base 500 menggunakan warna merah bata yang diredam agar senada dengan nuansa kayu dan terracotta.
+  */
+  --color-danger-50: #f9f2f1;
+  --color-danger-100: #f4e5e3;
+  --color-danger-200: #e9cbc6;
+  --color-danger-300: #deb0a9;
+  --color-danger-400: #d3968c;
+  --color-danger-500: #933b2d; /* Base baru (geser dari 700 sebelumnya) */
+  --color-danger-600: #7e3226;
+  --color-danger-700: #6a2a20;
+  --color-danger-800: #55221a;
+  --color-danger-900: #411a14;
+  --color-danger-950: #2c110d;
+
+  /* --- MUTED (Warm Taupe) ---
+    Base 500 menggunakan warna abu-abu kecokelatan untuk memberikan impresi bayangan yang lembut.
+  */
+  --color-muted-50: #f4f3f2;
+  --color-muted-100: #e9e7e5;
+  --color-muted-200: #d4d0cb;
+  --color-muted-300: #beb8b2;
+  --color-muted-400: #a9a198;
+  --color-muted-500: #716a64; /* Base baru (geser dari 700 sebelumnya) */
+  --color-muted-600: #615b56;
+  --color-muted-700: #514c48;
+  --color-muted-800: #413d3a;
+  --color-muted-900: #312e2c;
+  --color-muted-950: #211f1e;
+
+  /* --- Base Neutral Utilities --- */
+  --color-base-white: #fdfcf7;  /* Warna latar belakang cream-putih bersih dominan */
+  --color-base-cream: #f6f3eb;  /* Warna card background atau section accordion FAQ */
+  --color-base-dark: #2d2219;   /* Warna cokelat paling gelap dari footer untuk teks kontras tinggi */
 }
-
 @layer base {
   html,
   body,
