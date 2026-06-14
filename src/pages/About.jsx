@@ -1,4 +1,6 @@
 import { createSignal } from 'solid-js'
+import ProductCard from '../components/ProductCard'
+import Navbar from '../components/Navbar'
 
 
 export default function About() {
@@ -6,8 +8,8 @@ export default function About() {
 
   return (
     <>
-      <h1 className='text-red-500'>About</h1>
-      <i class="ph ph-address-book"></i>
+      <div class="h-screen flex justify-center items-center gap-30">
+      </div>
     </>
   )
 }

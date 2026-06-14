@@ -3,7 +3,7 @@ import SeaLogo from "../assets/sea-logo.png"
 export default function Footer() {
   return (
     <>
-      <footer className="w-full">
+      <footer class="w-full mt-80">
         <div class="mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8">
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
@@ -51,7 +51,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <hr class="my-6 border-gray-200 lg:my-8 sm:mx-auto" />
+          <hr class="my-6 border-muted-200 lg:my-8 sm:mx-auto" />
           <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm  sm:text-center">© 2026 <a href="https://v3.flowbite.com/" class="hover:underline tracking-wide font-mono">SEAPEDIA</a>. All Rights Reserved.
             </span>
