@@ -33,10 +33,10 @@ export default function ProductCard(props) {
 
   return (
     <div
-      class="border border-muted-200 cursor-pointer transition-all hover:scale-[1.01] hover:shadow-sm bg-muted-100 w-full p-4"
+      class="border border-muted-200 cursor-pointer transition-all group hover:-translate-y-1 bg-muted-100 w-full p-4 relative overflow-hidden pb-8"
       onClick={merged.onClickProp}
     >
-      <div class="">
+      <div>
         <div class="flex items-center justify-between gap-4 mb-5">
           {merged.hotTag ? (
             <div
@@ -72,7 +72,6 @@ export default function ProductCard(props) {
         </div>
 
         {/* Gambar Produk */}
-        {/* <div class="flex items-center justify-center"> */}
         <div
           class="relative w-full aspect-square bg-center bg-no-repeat bg-contain mx-auto rounded-md"
           style={{
@@ -80,15 +79,10 @@ export default function ProductCard(props) {
               "url('https://www.footstepfootwear.com/wp-content/uploads/2023/10/2-1.jpg')",
           }}
         >
-        {/* </div> */}
         </div>
-
-
       </div>
 
       <div class="p-6">
-
-
         {/* Info Produk */}
         <div class="mb-1">
           <p
@@ -113,6 +107,13 @@ export default function ProductCard(props) {
             £{merged.price.toFixed(2)}
           </p>
         </div>
+      </div>
+
+      <div className="bg-primary-500 absolute bottom-0 left-0 right-0 translate-y-14 group-hover:translate-y-0 transition-all flex justify-between items-center py-3 px-10">
+        <span className="uppercase font-mono text-white">
+          Add to cart
+        </span>
+        <i class="ph ph-arrow-up-right text-white text-2xl"></i>
       </div>
     </div>
   );
