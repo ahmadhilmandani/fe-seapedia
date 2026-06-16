@@ -10,6 +10,7 @@ export default function Home() {
 
   return (
     <div class="mt-32">
+
       <section class='flex flex-wrap justify-between items-center gap-24 border-b border-primary-300'>
         <div class='max-w-2xl flex-1'>
           <h1 class='text-7xl'>
@@ -18,28 +19,24 @@ export default function Home() {
           <p class='mb-8'>
             From everyday necessities to your favorite brands, SEAPEDIA connects you to a world of endless choices right at your fingertips.
           </p>
-
           <div class='flex gap-8 items-center flex-wrap'>
-            <button class="group flex items-center bg-primary-700 font-medium pl-8 pr-2 py-2 rounded-lg shadow-md transition-all hover:bg-primary-900 cursor-pointer">
-              <span class="text-sm tracking-wide mr-4 select-none text-white">
-                Start Shopping
-              </span>
-
-              <div class=" shrink-0 flex items-center justify-center bg-yellow-300 text-primary-700 w-10 h-10 rounded-lg transition-transform group-hover:translate-x-[2px]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </div>
-            </button>
-
-
+            <div class='max-w-md'>
+              <button class="group btn btn-primary">
+                <span class="text-sm tracking-wide select-none text-white relative -right-2">
+                  Start Shopping
+                </span>
+                <div class="shrink-0 flex items-center justify-center bg-yellow-300 text-primary-700 w-10 h-10 rounded-lg transition-transform group-hover:translate-x-0.5 relative -right-2">
+                  <i class="ph-bold ph-arrow-up-right text-primary-700 text-2xl"></i>
+                </div>
+              </button>
+            </div>
             <div class='group flex items-center font-semibold px-6 pb-4 pt-5 transition-all cursor-pointer border-b-2 border-primary-700 text-primary-700'>
               Read More !
             </div>
           </div>
         </div>
         <div class='relative flex justify-center items-end'>
-          <div class='w-[280px] bg-white p-4 border border-muted-200 absolute top-24 right-0 z-2 shadow-2xl'>
+          <div class='w-70 bg-white p-4 border border-muted-200 absolute top-24 right-0 z-2 shadow-2xl'>
             <div class="flex items-center gap-6">
               <div class="flex-shrink-0 flex items-center justify-center p-3 bg-primary-50 border border-primary-100 rounded-md">
                 <i class="ph-bold ph-shopping-bag text-4xl text-primary-500/80"></i>
@@ -54,10 +51,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <div class='w-[340px] bg-white p-4 border border-muted-200 absolute bottom-10 left-0 z-4 shadow-2xl'>
+          <div class='w-85 bg-white p-4 border border-muted-200 absolute bottom-10 left-0 z-4 shadow-2xl'>
             <div class="flex items-center gap-6">
-              <div class="flex-shrink-0 flex items-center justify-center p-3 bg-success-50 border border-success-100 rounded-md">
+              <div class="shrink-0 flex items-center justify-center p-3 bg-success-50 border border-success-100 rounded-md">
                 <i class="ph-bold ph-smiley text-4xl text-success-400"></i>
               </div>
               <div>
@@ -70,30 +66,27 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-
           <div class='w-[65%] bg-primary-100 aspect-11/16 z-1 absolute bottom-0 mx-auto'>
           </div>
-
-          <img src={HeroImg} alt="" class='w-[640px] relative z-3' />
+          <img src={HeroImg} alt="" class='w-160 relative z-3' />
         </div>
       </section>
 
+      
       <section class="my-20 pb-44">
         <h1 class='text-5xl'>
           Who are we?
         </h1>
-
         <p class='text-2xl mb-12'>
           Experience the next generation of commerce.
           SEAPEDIA is a multi-role ecosystem where precision logistics meets an accessible storefront, empowering buyers, sellers, and drivers in a single, transparent marketplace.
         </p>
 
-        <h3 className='mb-5'>
+        <h3 class='mb-5'>
           One Platform, Multiple Opportunities
         </h3>
 
-        <div className='flex justify-between flex-wrap border border-muted-100'>
+        <div class='flex justify-between flex-wrap border border-muted-100'>
           <div class="bg-white max-w-xl flex-1 min-w-[280px] p-8">
             <div class="flex items-center gap-6 mb-5">
               <div class="flex items-center justify-center p-3 bg-primary-50 border border-primary-100 rounded-md">
@@ -103,7 +96,7 @@ export default function Home() {
                 Buyer
               </h5>
             </div>
-            <p className='text-muted-500'>
+            <p class='text-muted-500'>
               Find products from various sellers, manage your cart, checkout securely, and track your orders from purchase to delivery.
             </p>
           </div>
@@ -116,7 +109,7 @@ export default function Home() {
                 Seller
               </h5>
             </div>
-            <p className='text-muted-500'>
+            <p class='text-muted-500'>
               Create your own store and start selling products to thousands of potential customers.
             </p>
           </div>
@@ -129,13 +122,11 @@ export default function Home() {
                 Driver
               </h5>
             </div>
-            <p className='text-muted-500'>
+            <p class='text-muted-500'>
               Join the delivery network and earn by completing delivery jobs.
             </p>
           </div>
         </div>
-
-
       </section>
 
 
@@ -144,18 +135,20 @@ export default function Home() {
           Best Selling Product
         </h1>
 
-        <div className='flex justify-between flex-wrap gap-12'>
-          <div className='max-w-lg flex-1'>
+        <div class='flex justify-between flex-wrap gap-12'>
+          <div class='max-w-lg flex-1'>
             <ProductCard hotTag={true} />
           </div>
-          <div className='max-w-lg flex-1'>
+          <div class='max-w-lg flex-1'>
             <ProductCard hotTag={true} />
           </div>
-          <div className='max-w-lg flex-1'>
+          <div class='max-w-lg flex-1'>
             <ProductCard hotTag={true} />
           </div>
         </div>
       </section>
+
+      
 
       <section class="mt-20 min-h-screen">
         <h1 class='text-5xl mb-12 text-center'>
@@ -168,34 +161,29 @@ export default function Home() {
           <span class="text-warning-600 text-3xl leading-none">★</span>
           <span class="text-warning-600 text-3xl leading-none">★</span>
           <span class="text-warning-600 text-3xl leading-none">★</span>
-          <div className='text-xl'>
+          <div class='text-xl'>
             4.9/5 Average
           </div>
         </div>
 
-        <div className='flex justify-center inset-ring-base-cream flex-wrap gap-12'>
-          <div className='max-w-lg flex-1 min-w-[320px] xl:min-w-[540px]'>
+        <div class='flex justify-center inset-ring-base-cream flex-wrap gap-12'>
+          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
             <ReviewCard />
           </div>
-          <div className='max-w-lg flex-1 min-w-[320px] xl:min-w-[540px]'>
+          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
             <ReviewCard />
           </div>
-          <div className='max-w-lg flex-1 min-w-[320px] xl:min-w-[540px]'>
+          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
             <ReviewCard />
           </div>
-          <div className='max-w-lg flex-1 min-w-[320px] xl:min-w-[540px]'>
+          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
             <ReviewCard />
           </div>
         </div>
-
-
       </section>
 
 
-
-
-
-
+      
       <section class="mt-80 min-h-screen bg-muted-100 flex gap-8">
         <div
           class="relative max-w-[40%] w-full aspect-4/5 bg-center bg-no-repeat bg-cover mx-auto"
@@ -210,9 +198,6 @@ export default function Home() {
           <h1 class='text-5xl mb-4'>
             Have Any Question?
           </h1>
-
-
-
           <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-muted-900" data-inactive-classes="text-muted-500">
             <h2 id="accordion-flush-heading-1">
               <button type="button" class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-muted-500 border-b border-muted-200 gap-3" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
@@ -222,7 +207,7 @@ export default function Home() {
                 </svg>
               </button>
             </h2>
-            <div id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+            <div id="accordion-flush-body-1" aria-labelledby="accordion-flush-heading-1">
               <div class="py-5 border-b border-muted-200">
                 <p class="mb-2 text-muted-500">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
                 <p class="text-muted-500">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-primary-600 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
@@ -263,8 +248,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-
       </section>
 
     </div>

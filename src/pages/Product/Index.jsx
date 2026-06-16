@@ -14,7 +14,7 @@ export default function ProductIndex() {
               Products
             </h1>
             <p class="text-sm font-normal text-muted-500">
-              Temukan koleksi produk terbaik kami yang dirancang untuk kenyamanan dan estetika minimalis Anda.
+              Find the best product and for you!
             </p>
           </div>
 
@@ -22,15 +22,13 @@ export default function ProductIndex() {
             <form>
               <label for="search" class="mb-2 text-sm font-medium text-muted-900 sr-only">Search</label>
               <div class="relative">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                  <svg class="w-4 h-4 text-muted-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                  </svg>
+                <div class="absolute inset-y-0 inset-s-0 flex items-center ps-3 pointer-events-none">
+                  <i class="ph-bold ph-magnifying-glass text-primary-500"></i>
                 </div>
                 <input
                   type="search"
                   id="search"
-                  class="block w-full px-3.5 py-2.5 ps-10 text-sm text-muted-900 border border-muted-300 rounded-lg bg-white focus:ring-primary-500 focus:border-primary-500 placeholder-muted-400"
+                  class="ps-10"
                   placeholder="Search Product..."
                   required
                 />
@@ -39,8 +37,8 @@ export default function ProductIndex() {
           </div>
 
         </header>
-        <div className="flex gap-12">
-          <div class="w-full max-w-[300px] sticky top-24 left-0 h-fit">
+        <div class="flex gap-12">
+          <div class="w-full max-w-75 sticky top-24 left-0 h-fit">
             <div class="mb-3 font-semibold">
               Filter :
             </div>
@@ -62,7 +60,7 @@ export default function ProductIndex() {
                     <input
                       type="text"
                       id="input-group-1"
-                      class="bg-muted-50 border border-muted-300 text-muted-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-11 p-2.5 placeholder-muted-400"
+                      class="ps-10"
                       placeholder="Min. Price"
                     />
                   </div>
@@ -73,7 +71,7 @@ export default function ProductIndex() {
                     <input
                       type="text"
                       id="input-group-1"
-                      class="bg-muted-50 border border-muted-300 text-muted-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-11 p-2.5 placeholder-muted-400"
+                      class="ps-10"
                       placeholder="Max. Price"
                     />
                   </div>
@@ -89,7 +87,7 @@ export default function ProductIndex() {
                 </div>
                 <div class="space-y-3">
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" class="w-5 h-5 rounded border-grey-300 text-primary-700 focus:ring-primary-500 focus:ring-offset-0 cursor-pointer accent-primary-700" />
+                    <input type="checkbox" />
                     <div class="flex items-center gap-1.5 text-sm text-primary-800 font-medium group-hover:text-primary-900">
                       <span class="text-warning-600 text-base leading-none">★</span>
                       <span>
@@ -98,7 +96,7 @@ export default function ProductIndex() {
                     </div>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" class="w-5 h-5 rounded border-grey-300 text-primary-700 focus:ring-primary-500 focus:ring-offset-0 cursor-pointer accent-primary-700" />
+                    <input type="checkbox" />
                     <div class="flex items-center gap-1.5 text-sm text-primary-800 font-medium group-hover:text-primary-900">
                       <span class="text-warning-600 text-base leading-none">★</span>
                       <span>
@@ -118,78 +116,64 @@ export default function ProductIndex() {
                 </div>
                 <div class="space-y-3">
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" class="w-5 h-5 rounded border-grey-300 text-primary-700 focus:ring-primary-500 focus:ring-offset-0 cursor-pointer accent-primary-700" />
+                    <input type="checkbox" />
                     <span class="text-sm text-primary-800 font-medium group-hover:text-primary-900">Instant (3 Hours)</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" class="w-5 h-5 rounded border-grey-300 text-primary-700 focus:ring-primary-500 focus:ring-offset-0 cursor-pointer accent-primary-700" />
+                    <input type="checkbox" />
                     <span class="text-sm text-primary-800 font-medium group-hover:text-primary-900">Same Day</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" class="w-5 h-5 rounded border-grey-300 text-primary-700 focus:ring-primary-500 focus:ring-offset-0 cursor-pointer accent-primary-700" />
+                    <input type="checkbox" />
                     <span class="text-sm text-primary-800 font-medium group-hover:text-primary-900">Reguler (1-3 Days)</span>
                   </label>
                 </div>
               </div>
-
             </aside>
           </div>
 
-          <div className="flex flex-wrap gap-12">
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
+          <div class="flex flex-wrap gap-12">
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
+              <ProductCard />
+            </div>
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
 
               <ProductCard />
             </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
-              <ProductCard />
-            </div>
-            <div className="min-w-[280px] xl:min-w-[320px] flex-1 xl:max-w-[400px]">
-
+            <div class="min-w-70 xl:min-w-[320px] flex-1 xl:max-w-100">
               <ProductCard />
             </div>
 

@@ -109,8 +109,8 @@ export default function ProductCard(props) {
         </div>
       </div>
 
-      <div className="bg-primary-500 absolute bottom-0 left-0 right-0 translate-y-14 group-hover:translate-y-0 transition-all flex justify-between items-center py-3 px-10">
-        <span className="uppercase font-mono text-white">
+      <div class="bg-primary-500 absolute bottom-0 left-0 right-0 translate-y-14 group-hover:translate-y-0 transition-all flex justify-between items-center py-3 px-10">
+        <span class="uppercase font-mono text-white">
           Add to cart
         </span>
         <i class="ph ph-arrow-up-right text-white text-2xl"></i>

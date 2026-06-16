@@ -19,13 +19,15 @@ export default function Navbar() {
 
           {/* < xl screen */}
           <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <div className="flex gap-3">        
-            <A href="/sign-in" class="text-primary-700 bg-primary-100 hover:bg-primary-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center">
-              Sign In
-            </A>
-            <A href="/sign-up" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 text-center">
-              Sign Up
-            </A>
+            <div class="flex gap-3 flex-1">
+              {/* <div class="w-[200px]"> */}
+                <A href="/sign-in" class="btn btn-secondary">
+                  Sign In
+                </A>
+              {/* </div> */}
+              <A href="/sign-up" class="btn btn-primary">
+                Sign Up
+              </A>
             </div>
             <button type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-muted-500 rounded-lg md:hidden hover:bg-muted-100 focus:outline-none focus:ring-2 focus:ring-muted-200" aria-controls="navbar-sticky" aria-expanded="false">
 

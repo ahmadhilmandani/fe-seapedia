@@ -110,9 +110,9 @@
   --color-muted-950: #211f1e;
 
   /* --- Base Neutral Utilities --- */
-  --color-base-white: #fdfcf7;  /* Warna latar belakang cream-putih bersih dominan */
-  --color-base-cream: #f6f3eb;  /* Warna card background atau section accordion FAQ */
-  --color-base-dark: #2d2219;   /* Warna cokelat paling gelap dari footer untuk teks kontras tinggi */
+  --color-base-white: #fdfcf7; /* Warna latar belakang cream-putih bersih dominan */
+  --color-base-cream: #f6f3eb; /* Warna card background atau section accordion FAQ */
+  --color-base-dark: #2d2219; /* Warna cokelat paling gelap dari footer untuk teks kontras tinggi */
 }
 @layer base {
   html,
@@ -199,7 +199,7 @@
     font-size: 14.5px;
     line-height: 160%;
     font-family: "Inter", sans-serif;
-    @apply text-neutral-800;
+    @apply text-primary-800;
   }
 
   h1,
@@ -225,5 +225,24 @@
 
   p {
     @apply mb-2 leading-[160%] tracking-[0.15px];
+  }
+
+  input {
+    @apply bg-muted-50 border border-muted-300 text-muted-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-muted-400 focus:outline-primary-500;
+  }
+
+  input[type="checkbox"] {
+    @apply w-5 h-5 rounded border-grey-300 text-primary-700 focus:ring-primary-500 focus:ring-offset-0 cursor-pointer accent-primary-700;
+  }
+
+  .btn {
+    @apply flex justify-center items-center w-full px-5 py-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm text-center transition-all text-nowrap cursor-pointer gap-4;
+  }
+
+  .btn-primary {
+    @apply text-white bg-primary-700 hover:bg-primary-800 focus:ring-primary-300;
+  }
+  .btn-secondary {
+    @apply text-primary-700 bg-primary-100 hover:bg-primary-200 focus:ring-primary-300;
   }
 }
