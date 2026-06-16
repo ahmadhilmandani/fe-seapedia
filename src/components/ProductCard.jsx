@@ -50,7 +50,7 @@ export default function ProductCard(props) {
             </div>
           ) : (
             <div
-              class="px-3 py-1.5 rounded-sm shadow-inner bg-warning-100 text-warning-100">
+              class="px-3 py-1.5 rounded-sm shadow-inner bg-muted-100 text-muted-100">
               Hot item
             </div>
           )

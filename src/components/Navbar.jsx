@@ -37,9 +37,9 @@ export default function Navbar() {
               <li>
                 <A href="/product" class="block py-2 px-3 rounded-sm" classList={{ "active": setActiveLink('/product') }}>Product</A>
               </li>
-              <li>
+              {/* <li>
                 <A href="/about" class="block py-2 px-3 rounded-sm" classList={{ "active": setActiveLink('/about') }}>About</A>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
