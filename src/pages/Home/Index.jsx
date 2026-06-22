@@ -3,10 +3,42 @@ import HeroImg from "../../assets/hero-img.png"
 import FaqHero from "../../assets/faq-hero.png"
 import ProductCard from '../../components/ProductCard'
 import ReviewCard from './Component/ReviewCard'
+import { createStore } from 'solid-js/store'
 
 
 export default function Home() {
   const [count, setCount] = createSignal(0)
+  const [reviews, setReviews] = createStore(
+    [
+      {
+        "id": 1,
+        "user_id": null,
+        "reviewer_name": "Budi Santoso",
+        "reviewer_role": "Seller",
+        "rating": 5,
+        "comment": "Aplikasi sangat membantu dan mudah digunakan.",
+        "created_at": "2026-06-23 08:00:00"
+      },
+      {
+        "id": 2,
+        "user_id": 5,
+        "reviewer_name": 'Andi Hermawan',
+        "reviewer_role": 'Buyyer',
+        "rating": 4,
+        "comment": "UI cukup bagus, hanya perlu peningkatan performa.",
+        "created_at": "2026-06-23 08:15:00"
+      },
+      {
+        "id": 3,
+        "user_id": null,
+        "reviewer_name": "Siti Aminah",
+        "reviewer_role": "Seller",
+        "rating": 3,
+        "comment": "Fitur sudah bagus, tetapi masih ada beberapa bug.",
+        "created_at": "2026-06-23 08:30:00"
+      }
+    ]
+  )
 
   return (
     <div class="mt-32">
@@ -72,7 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
       <section class="my-20 pb-44">
         <h1 class='text-5xl'>
           Who are we?
@@ -148,7 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
 
       <section class="mt-20 min-h-screen">
         <h1 class='text-5xl mb-12 text-center'>
@@ -167,23 +199,27 @@ export default function Home() {
         </div>
 
         <div class='flex justify-center inset-ring-base-cream flex-wrap gap-12'>
-          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
-            <ReviewCard />
-          </div>
-          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
-            <ReviewCard />
-          </div>
-          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
-            <ReviewCard />
-          </div>
-          <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
-            <ReviewCard />
-          </div>
+          <For each={reviews}>
+            {(row, index) => {
+              return (
+                <>
+                  <div class='max-w-lg flex-1 min-w-[320px] xl:min-w-135'>
+                    <ReviewCard
+                      reviewer_name={row.reviewer_name}
+                      reviewer_role={row.reviewer_role}
+                      rating={row.rating}
+                      comment={row.comment}
+                    />
+                  </div>
+                </>
+              )
+            }}
+          </For>
         </div>
       </section>
 
 
-      
+
       <section class="mt-80 min-h-screen bg-muted-100 flex gap-8">
         <div
           class="relative max-w-[40%] w-full aspect-4/5 bg-center bg-no-repeat bg-cover mx-auto"
@@ -249,7 +285,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }

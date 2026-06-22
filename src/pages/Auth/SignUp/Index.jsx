@@ -157,9 +157,6 @@ export default function SignUpIndex() {
           }))
       };
 
-      // console.log(payload);
-      // return
-
       await signUp(payload);
 
       toast.success("Account Created!");
