@@ -1,5 +1,6 @@
 import { A, useLocation } from "@solidjs/router"
 import SeaLogo from "../assets/sea-logo.png"
+import { useAuth } from "../stores/auth/auth-context.jsx";
 
 export default function Navbar() {
   const location = useLocation();
@@ -7,6 +8,10 @@ export default function Navbar() {
   function setActiveLink(url = '') {
     return location.pathname.startsWith(`/${url}`) ? true : false
   }
+
+  const auth = useAuth();
+
+  console.log(auth.authStore.user)
 
   return (
     <>
@@ -19,16 +24,35 @@ export default function Navbar() {
 
           {/* < xl screen */}
           <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <div class="flex gap-3 flex-1">
-              {/* <div class="w-[200px]"> */}
+            <Show when={!auth?.authStore?.isAuthenticated}>
+              <div class="flex gap-3 flex-1">
                 <A href="/sign-in" class="btn btn-secondary">
                   Sign In
                 </A>
-              {/* </div> */}
-              <A href="/sign-up" class="btn btn-primary">
-                Sign Up
-              </A>
-            </div>
+                <A href="/sign-up" class="btn btn-primary">
+                  Sign Up
+                </A>
+              </div>
+            </Show>
+            <Show when={auth?.authStore?.isAuthenticated}>
+              <div className="flex items-center gap-2">
+                <div className="btn btn-secondary p-2.5 relative">
+                  <i class="ph-bold ph-bell text-xl"></i>
+                </div>
+                <div className="btn btn-secondary p-2.5 relative">
+                  <div className="size-4 aspect-square rounded-full bg-rose-400 absolute -top-1 -right-1 text-[10px] text-white font-bold flex justify-center items-center mb-0 leading-none">
+                    1
+                  </div>
+                  <i class="ph-bold ph-shopping-cart-simple text-2xl"></i>
+                </div>
+                <div class="flex gap-3 flex-1 btn btn-secondary">
+                  <i class="ph-bold ph-user-circle text-2xl"></i>
+                  <div href="/sign-in" class="">
+                    {auth?.authStore?.user?.name}
+                  </div>
+                </div>
+              </div>
+            </Show>
             <button type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-muted-500 rounded-lg md:hidden hover:bg-muted-100 focus:outline-none focus:ring-2 focus:ring-muted-200" aria-controls="navbar-sticky" aria-expanded="false">
 
               <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">

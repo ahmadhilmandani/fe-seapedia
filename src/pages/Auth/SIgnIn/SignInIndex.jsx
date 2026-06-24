@@ -1,8 +1,80 @@
-import { createSignal } from "solid-js"
+import { createStore } from "solid-js/store";
 import ProductCard from "../../../components/ProductCard"
+import toast from "solid-toast";
+import { createSignal } from "solid-js";
+import { signIn } from "../api/signIn";
+import {getUserInfo} from "../api/getUserInfo.js"
+import { setAuthStore } from "../../../stores/auth/auth-store";
+import { useNavigate } from "@solidjs/router";
 
 export default function SignInIndex() {
-  const [count, setCount] = createSignal(0)
+  const [isLoading, setIsLoading] = createSignal()
+  const [formData, setFormData] = createStore({
+    identifier: "",
+    password: "",
+  });
+  const navigate = useNavigate()
+
+  function validateForm() {
+    const data = formData
+
+    if (!formData.identifier) {
+      return 'Username or Email is Required';
+    }
+    if (!formData.password) {
+      return 'Password is Required';
+    }
+  }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData(name, value)
+  }
+
+  const submitForm = async () => {
+
+    const formError = validateForm();
+
+    if (formError) {
+      toast.error(formError);
+      return;
+    }
+
+    try {
+
+      setIsLoading(true);
+
+      const payload = {
+        identifier: formData.identifier,
+        password: formData.password
+      };
+
+      const resSignIn = await signIn(payload)
+
+      localStorage.setItem('token', resSignIn.data.user.token)
+
+      const res = await getUserInfo()
+
+      setAuthStore('isAuthenticated', true)
+      setAuthStore('user', res.data)
+
+      navigate('/home')
+      toast.success("Welcome to SEAPEDIA!");
+
+    } catch (error) {
+
+      console.log(error)
+      toast.error(
+        error?.response?.data?.msg ||
+        "Error!"
+      );
+
+    } finally {
+
+      setIsLoading(false);
+
+    }
+  };
 
   return (
     <>
@@ -23,13 +95,13 @@ export default function SignInIndex() {
           <form>
             <div class="mb-6">
               <label for="email" class="block mb-2 text-sm font-medium text-muted-900">Email</label>
-              <input type="email" id="email" class="bg-muted-50 border border-muted-300 text-muted-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-muted-400" placeholder="•••••••••" required />
+              <input onInput={(e) => { handleChange(e) }} type="email" id="email" name="identifier" class="bg-muted-50 border border-muted-300 text-muted-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-muted-400" placeholder="•••••••••" required />
             </div>
             <div class="mb-6">
               <label for="password" class="block mb-2 text-sm font-medium text-muted-900">Password</label>
-              <input type="password" id="password" class="bg-muted-50 border border-muted-300 text-muted-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-muted-400" placeholder="•••••••••" required />
+              <input onInput={(e) => { handleChange(e) }} type="password" id="password" name="password" class="bg-muted-50 border border-muted-300 text-muted-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-muted-400" placeholder="•••••••••" required />
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button onClick={submitForm} type="button" class="btn btn-primary">
               Sign In!
             </button>
           </form>

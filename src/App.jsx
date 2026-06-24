@@ -8,17 +8,20 @@ import SignInIndex from "./pages/Auth/SIgnIn/SignInIndex.jsx";
 
 import './index.css'
 import MainLayout from "./layouts/MainLayout";
+import { AuthProvider } from "./stores/auth/auth-context.jsx";
 
 export default function App() {
   return (
-    <Router>
-      <Route component={MainLayout}>
-        <Route path="/home" component={Home} />
-        <Route path="/product" component={ProductIndex} />
-        <Route path="/about" component={About} />
-        <Route path="/sign-in" component={SignInIndex} />
-        <Route path="/sign-up" component={SignUpIndex} />
-      </Route>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Route component={MainLayout}>
+          <Route path="/home" component={Home} />
+          <Route path="/product" component={ProductIndex} />
+          <Route path="/about" component={About} />
+          <Route path="/sign-in" component={SignInIndex} />
+          <Route path="/sign-up" component={SignUpIndex} />
+        </Route>
+      </Router>
+    </AuthProvider>
   );
 }

@@ -4,8 +4,13 @@ import RoleAccordion from "./Components/RoleAccordion";
 import { ROLES_TYPE } from "../../../shared/data/roleType";
 import { signUp } from "../api/signUp";
 import toast from "solid-toast";
+import { useNavigate } from "@solidjs/router";
+import { signIn } from "../api/signIn";
+import { authStore, setAuthStore } from "../../../stores/auth/auth-store";
 
 export default function SignUpIndex() {
+
+  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = createSignal(false);
 
@@ -119,19 +124,19 @@ export default function SignUpIndex() {
 
   const submitForm = async () => {
 
-    // const formError = validateForm();
+    const formError = validateForm();
 
-    // if (formError) {
-    //   toast.error(formError);
-    //   return;
-    // }
+    if (formError) {
+      toast.error(formError);
+      return;
+    }
 
-    // const roleError = validateRoleAddress();
+    const roleError = validateRoleAddress();
 
-    // if (roleError) {
-    //   toast.error(roleError);
-    //   return;
-    // }
+    if (roleError) {
+      toast.error(roleError);
+      return;
+    }
 
     try {
 
@@ -157,12 +162,26 @@ export default function SignUpIndex() {
           }))
       };
 
-      await signUp(payload);
+      const res = await signUp(payload);
 
-      toast.success("Account Created!");
+      if (res) {
+        const resSignIn = await signIn({
+          identifier: formData.username,
+          password: formData.password,
+        })
+
+        
+        setAuthStore('isAuthenticated', true)
+        setAuthStore('user', resSignIn.data.user.token)
+
+        localStorage.setItem('token', resSignIn.data.user.token)
+        
+        navigate('/home')
+        toast.success("Account Created! Welcome to SEAPEDIA!");
+      }
+
 
     } catch (error) {
-
       toast.error(
         error?.response?.data?.msg ||
         "Error!"
