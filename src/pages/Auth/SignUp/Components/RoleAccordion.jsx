@@ -6,7 +6,8 @@ export default function RoleAccordion(props) {
   const mergedProps = mergeProps({
     role: {},
     roleIndex: 0,
-    setRoles: () => { }
+    setRoles: () => { },
+    setDefaultRole: () => { }
   }, props);
 
   const toggleRole = () => {
@@ -55,12 +56,12 @@ export default function RoleAccordion(props) {
               ROLES_TYPE[mergedProps.role.key]
                 == 'Seller' ?
                 "ph-bold ph-storefront text-2xl me-3"
-                : 
-              ROLES_TYPE[mergedProps.role.key]
-                == 'Driver' ?
-                "ph-bold ph-truck text-2xl me-3"
-                : ''
-            
+                :
+                ROLES_TYPE[mergedProps.role.key]
+                  == 'Driver' ?
+                  "ph-bold ph-truck text-2xl me-3"
+                  : ''
+
           }></i>
           {ROLES_TYPE[mergedProps.role.key]}
         </span>
@@ -77,7 +78,32 @@ export default function RoleAccordion(props) {
       <Show when={mergedProps.role.isSelected}>
         <div class="p-5 border border-t-0 border-primary-300">
 
-          <div class="flex items-center gap-3 mb-3 flex-">
+          <div class="flex items-center gap-3 mb-3 flex-wrap">
+            <div class="min-w-65 w-full shrink-0">
+              <div class="flex">
+                <div class="flex items-center h-5">
+                  <input
+                    type="radio"
+                    name="default_role"
+                    checked={mergedProps.role.is_default}
+                    disabled={!mergedProps.role.isSelected}
+                    onChange={() =>
+                      mergedProps.setDefaultRole(
+                        mergedProps.roleIndex
+                      )
+                    }
+                    class="w-4 h-4 text-primary-600 bg-muted-100 border-muted-300 focus:ring-primary-500 focus:ring-2" />
+                </div>
+                <div class="ms-2 text-sm">
+                  <label for="helper-radio" class="font-medium text-muted-900">
+                    Set As Default Role
+                  </label>
+                  <p id="helper-radio-text" class="text-xs font-normal text-muted-500">
+                    Set as default role make you loged in as this role everytime you sign in!
+                  </p>
+                </div>
+              </div>
+            </div>
             <div class="min-w-65 flex-1">
               <input
                 name="street_name"

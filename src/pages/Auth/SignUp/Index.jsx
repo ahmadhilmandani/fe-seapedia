@@ -31,7 +31,8 @@ export default function SignUpIndex() {
         regency: "",
         province: "",
         postal_code: "",
-        additional_note: ""
+        additional_note: "",
+        is_default: false,
       },
       {
         key: Object.keys(ROLES_TYPE)[2],
@@ -42,7 +43,8 @@ export default function SignUpIndex() {
         regency: "",
         province: "",
         postal_code: "",
-        additional_note: ""
+        additional_note: "",
+        is_default: false,
       },
       {
         key: Object.keys(ROLES_TYPE)[3],
@@ -53,7 +55,8 @@ export default function SignUpIndex() {
         regency: "",
         province: "",
         postal_code: "",
-        additional_note: ""
+        additional_note: "",
+        is_default: false,
       }
     ]
   });
@@ -62,6 +65,21 @@ export default function SignUpIndex() {
     const { name, value } = e.target;
 
     setFormData(name, value);
+  };
+
+  const setDefaultRole = (roleIndex) => {
+
+    formData.roles.forEach((_, index) => {
+
+      setFormData(
+        "roles",
+        index,
+        "is_default",
+        index === roleIndex
+      );
+
+    });
+
   };
 
   const validateForm = () => {
@@ -89,6 +107,15 @@ export default function SignUpIndex() {
 
     if (selectedRoles.length === 0)
       return "Select Min. 1 Role";
+
+    const selectedDefaultRoles =
+      selectedRoles.filter(role => role.is_default);
+
+    if (selectedDefaultRoles.length === 0)
+      return "Select Default Role";
+
+    if (selectedDefaultRoles.length > 1)
+      return "Only 1 Default Role Allowed";
 
     return null;
   };
@@ -158,7 +185,8 @@ export default function SignUpIndex() {
             regency: role.regency,
             province: role.province,
             postal_code: role.postal_code,
-            additional_note: role.additional_note
+            additional_note: role.additional_note,
+            is_default: role.is_default
           }))
       };
 
@@ -170,14 +198,13 @@ export default function SignUpIndex() {
           password: formData.password,
         })
 
-        
-        setAuthStore('isAuthenticated', true)
-        setAuthStore('user', resSignIn.data.user.token)
-
         localStorage.setItem('token', resSignIn.data.user.token)
-        
-        navigate('/home')
+
         toast.success("Account Created! Welcome to SEAPEDIA!");
+
+        setTimeout(() => {
+          window.location.href = '/home';
+        }, 350)
       }
 
 
@@ -267,6 +294,7 @@ export default function SignUpIndex() {
                     role={role}
                     roleIndex={index()}
                     setRoles={setFormData}
+                    setDefaultRole={setDefaultRole}
                   />
                 )}
               </For>
