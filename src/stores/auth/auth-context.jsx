@@ -12,7 +12,6 @@ import {
 import { getUserInfo } from "../../pages/Auth/api/getUserInfo.js";
 import toast from "solid-toast";
 
-
 const AuthContext = createContext();
 
 export function AuthProvider(props) {
