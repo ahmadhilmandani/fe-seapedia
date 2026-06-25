@@ -22,17 +22,15 @@ export default function Index() {
 
         <div>
           <h1 class="text-2xl mb-0">
-            Ahmad Hilman Dani
+            {auth?.authStore?.user?.name}
             <span class="text-muted-600 font-medium">
-              (@ahmadhilmandani)
+              (@{auth?.authStore?.user?.username})
             </span>
           </h1>
 
           <div class="w-fit px-4 py-1.5 text-success-700 bg-success-50 rounded-2xl">
             Buyer
           </div>
-
-          {auth?.authStore?.user?.name}
         </div>
       </header>
 

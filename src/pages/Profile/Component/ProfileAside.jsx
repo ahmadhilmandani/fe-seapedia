@@ -1,5 +1,6 @@
-import { mergeProps } from "solid-js";
+import { For, mergeProps } from "solid-js";
 import { PROFILE_MENU } from "../shared/profileAsideData";
+import { useAuth } from "../../../stores/auth/auth-context";
 
 export default function ProfileAside(props) {
   const mergedProps = mergeProps(
@@ -12,6 +13,8 @@ export default function ProfileAside(props) {
 
   const isActive = menu =>
     mergedProps.activeAside() === menu;
+
+  const auth = useAuth()
 
   return (
     <aside class="w-72 transition-transform -translate-x-full sm:translate-x-0">
@@ -26,8 +29,8 @@ export default function ProfileAside(props) {
                 )
               }
               class={`flex items-center p-2 w-full rounded-lg hover:bg-muted-100 ${isActive(PROFILE_MENU.GENERAL_INFO)
-                  ? "bg-muted-100 font-semibold"
-                  : ""
+                ? "bg-muted-100 font-semibold"
+                : ""
                 }`}
             >
               <i class="ph-bold ph-user text-2xl"></i>
@@ -42,59 +45,31 @@ export default function ProfileAside(props) {
             </div>
 
             <ul class="pl-10 py-2 space-y-2 list-disc">
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    mergedProps.setActiveAside(
-                      PROFILE_MENU.BUYER
-                    )
-                  }
-                  class={
-                    isActive(PROFILE_MENU.BUYER)
-                      ? "font-semibold"
-                      : ""
-                  }
-                >
-                  Buyer
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    mergedProps.setActiveAside(
-                      PROFILE_MENU.SELLER
-                    )
-                  }
-                  class={
-                    isActive(PROFILE_MENU.SELLER)
-                      ? "font-semibold"
-                      : ""
-                  }
-                >
-                  Seller
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  onClick={() =>
-                    mergedProps.setActiveAside(
-                      PROFILE_MENU.DRIVER
-                    )
-                  }
-                  class={
-                    isActive(PROFILE_MENU.DRIVER)
-                      ? "font-semibold"
-                      : ""
-                  }
-                >
-                  Driver
-                </button>
-              </li>
+              <For each={auth?.authStore?.user?.roles}>
+                {(row) => {
+                  return (
+                    <>
+                      <li>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            mergedProps.setActiveAside(
+                              PROFILE_MENU[row.role_name.toUpperCase()]
+                            )
+                          }
+                          class={
+                            isActive(PROFILE_MENU[row.role_name.toUpperCase()])
+                              ? "font-semibold"
+                              : ""
+                          }
+                        >
+                          {row.role_name}
+                        </button>
+                      </li>
+                    </>
+                  )
+                }}
+              </For>
             </ul>
           </li>
         </ul>
@@ -109,8 +84,8 @@ export default function ProfileAside(props) {
                 )
               }
               class={`flex items-center p-2 w-full rounded-lg hover:bg-muted-100 ${isActive(PROFILE_MENU.ADD_ROLE)
-                  ? "bg-muted-100 font-semibold"
-                  : ""
+                ? "bg-muted-100 font-semibold"
+                : ""
                 }`}
             >
               <i class="ph-bold ph-circles-three-plus text-2xl"></i>
