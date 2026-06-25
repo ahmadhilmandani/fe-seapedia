@@ -5,6 +5,7 @@ import About from "./pages/About";
 import ProductIndex from "./pages/Product/Index.jsx";
 import SignUpIndex from "./pages/Auth/SignUp/Index.jsx";
 import SignInIndex from "./pages/Auth/SIgnIn/SignInIndex.jsx";
+import ProfileIndex from "./pages/Profile/Index.jsx"
 
 import './index.css'
 import MainLayout from "./layouts/MainLayout";
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/about" component={About} />
           <Route path="/sign-in" component={SignInIndex} />
           <Route path="/sign-up" component={SignUpIndex} />
+          <Route path="/profile/:username" component={ProfileIndex} />
         </Route>
       </Router>
     </AuthProvider>

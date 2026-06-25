@@ -19,7 +19,7 @@ export default function ReviewCard(props) {
           {mergedProps.comment}
         </p>
 
-        <div className="flex gap-2 items-center mt-2 mb-6">
+        <div class="flex gap-2 items-center mt-2 mb-6">
           <span class="text-warning-400 text-2xl leading-none">★</span>
           <div class='text-primary-400'>
             {mergedProps.rating} / 5

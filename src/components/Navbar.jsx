@@ -42,12 +42,12 @@ export default function Navbar() {
               </div>
             </Show>
             <Show when={auth?.authStore?.isAuthenticated}>
-              <div className="flex items-center gap-2">
-                <div className="btn btn-secondary p-2.5 relative">
+              <div class="flex items-center gap-2">
+                <div class="btn btn-secondary p-2.5 relative">
                   <i class="ph-bold ph-bell text-xl"></i>
                 </div>
-                <div className="btn btn-secondary p-2.5 relative">
-                  <div className="size-4 aspect-square rounded-full bg-rose-400 absolute -top-1 -right-1 text-[10px] text-white font-bold flex justify-center items-center mb-0 leading-none">
+                <div class="btn btn-secondary p-2.5 relative">
+                  <div class="size-4 aspect-square rounded-full bg-rose-400 absolute -top-1 -right-1 text-[10px] text-white font-bold flex justify-center items-center mb-0 leading-none">
                     1
                   </div>
                   <i class="ph-bold ph-shopping-cart-simple text-2xl"></i>
@@ -61,25 +61,25 @@ export default function Navbar() {
                     <i class="ph-bold ph-caret-down text-lg leading-none ml-1"></i>
                   </div>
                   <Show when={profileClicked()}>
-                    <div className="w-[240px] absolute top-14 right-0 bg-white border border-muted-200 rounded-lg shadow-xl overflow-hidden">
+                    <div class="w-[240px] absolute top-14 right-0 bg-white border border-muted-200 rounded-lg shadow-xl overflow-hidden">
 
-                      <div className="px-4 py-3">
-                        <p className="font-semibold text-sm text-primary-900 leading-none mb-1">
+                      <div class="px-4 py-3">
+                        <p class="font-semibold text-sm text-primary-900 leading-none mb-1">
                           {auth?.authStore?.user?.name}
                         </p>
-                        <p className="text-xs text-primary-500">
+                        <p class="text-xs text-primary-500">
                           (Admin)
                         </p>
                       </div>
 
-                      <div className="border-t border-primary-200" />
+                      <div class="border-t border-primary-200" />
 
-                      <ul className="py-2">
+                      <ul class="py-2">
                         <li>
                           <A href={`/profile/${auth?.authStore?.user?.username}`}>
                             <button
                               type="button"
-                              className="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
+                              class="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
                             >
                               Profile
                             </button>
@@ -89,7 +89,7 @@ export default function Navbar() {
                           <A href={`/wallet/${auth?.authStore?.user?.username}`}>
                             <button
                               type="button"
-                              className="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
+                              class="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
                             >
                               Wallet
                             </button>
@@ -97,25 +97,25 @@ export default function Navbar() {
 
                         </li>
                         <li>
-                          <A href={`/history/${auth?.authStore?.user?.username}`}>
+                          <A href={`/transaksi/${auth?.authStore?.user?.username}`}>
                             <button
                               type="button"
-                              className="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
+                              class="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
                             >
-                              History
+                              Transaksi
                             </button>
                           </A>
                         </li>
                       </ul>
 
                       {/* Divider */}
-                      <div className="border-t border-primary-200" />
+                      <div class="border-t border-primary-200" />
 
                       {/* Logout */}
-                      <div className="py-2">
+                      <div class="py-2">
                         <button
                           type="button"
-                          className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50"
+                          class="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50"
                         >
                           Sign Out
                         </button>
