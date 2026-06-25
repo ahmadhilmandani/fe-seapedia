@@ -18,39 +18,26 @@ export function AuthProvider(props) {
 
   onMount(async () => {
     try {
-      const res = await getUserInfo()
+      const res = await getUserInfo();
 
-      setAuthStore('isAuthenticated', true)
-      setAuthStore('user', res.data)
+      setAuthStore({
+        isAuthenticated: true,
+        user: res.data
+      });
 
     } catch (error) {
 
-      const token = localStorage.getItem('token')
+      setAuthStore({
+        isAuthenticated: false,
+        user: null
+      });
 
-      console.log(error)
+    } finally {
 
-      if (error.response.status == 401) {
-
-        if (!token) {
-          return
-        }
-
-        toast.error(
-          "Your sign-in session has been expired! Please re-sign in!"
-        );
-
-        return
-
-      }
-
-      toast.error(
-        error?.response?.data?.msg ||
-        "Error!"
-      );
+      setAuthStore("loading", false);
 
     }
-
-  })
+  });
 
   const logout = async () => {
 

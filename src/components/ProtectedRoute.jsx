@@ -1,14 +1,22 @@
+import { Show } from "solid-js";
+import { Navigate } from "@solidjs/router";
 import { useAuth } from "../stores/auth/auth-context";
 
-function ProtectedRoute(props) {
-  const auth = useAuth();
+export default function ProtectedRoute(props) {
+
+  const { authStore } = useAuth();
 
   return (
     <Show
-      when={auth.isAuthenticated}
-      fallback={<Navigate href="/sign-in" />}
+      when={!authStore.loading}
+      fallback={<div>Loading...</div>}
     >
-      {props.children}
+      <Show
+        when={authStore.isAuthenticated}
+        fallback={<Navigate href="/sign-in" />}
+      >
+        {props.children}
+      </Show>
     </Show>
   );
 }
