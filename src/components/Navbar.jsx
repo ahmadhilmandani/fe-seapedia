@@ -97,12 +97,12 @@ export default function Navbar() {
 
                         </li>
                         <li>
-                          <A href={`/transaksi/${auth?.authStore?.user?.username}`}>
+                          <A href={`/transaction/${auth?.authStore?.user?.username}`}>
                             <button
                               type="button"
                               class="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
                             >
-                              Transaksi
+                              Transaction
                             </button>
                           </A>
                         </li>

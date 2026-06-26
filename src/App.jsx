@@ -12,6 +12,7 @@ import "./index.css";
 import MainLayout from "./layouts/MainLayout";
 import { AuthProvider } from "./stores/auth/auth-context.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import WalletIndex from "./pages/Wallet/WalletIndex.jsx";
 
 export default function App() {
   return (
@@ -33,7 +34,7 @@ export default function App() {
             />
             <Route
               path="/wallet/:username"
-              component={ProfileIndex}
+              component={WalletIndex}
             />
             <Route
               path="/transaction/:username"
