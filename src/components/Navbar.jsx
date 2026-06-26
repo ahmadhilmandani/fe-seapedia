@@ -20,6 +20,11 @@ export default function Navbar() {
 
   const auth = useAuth();
 
+  const activeRole = () => {
+    const user = auth?.authStore?.user;
+    return user?.roles?.find((r) => r.role_id === user.activeRole) || null;
+  };
+
   return (
     <>
       <nav class="bg-white fixed w-full z-20 top-0 left-0 right-0 border-b border-muted-200">
@@ -68,7 +73,7 @@ export default function Navbar() {
                           {auth?.authStore?.user?.name}
                         </p>
                         <p class="text-xs text-primary-500">
-                          (Admin)
+                          ({activeRole().role_name})
                         </p>
                       </div>
 
