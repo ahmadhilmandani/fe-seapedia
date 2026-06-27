@@ -17,7 +17,7 @@ export default function Home() {
   const [showReviewModal, setShowReviewModal] = createSignal(false)
   const [isReviewLoading, setIsReviewLoading] = createSignal(false)
 
-const [reviews, setReviews] = createStore([]);
+  const [reviews, setReviews] = createStore([]);
 
   const [reviewForm, setReviewForm] = createStore({
     reviewer_name: "",
@@ -27,23 +27,23 @@ const [reviews, setReviews] = createStore([]);
 
   async function loadReview() {
 
-  try {
+    try {
 
-    const { data } = await getReview();
+      const { data } = await getReview();
 
-    setReviews(data.data);
+      setReviews(data.data);
 
-  } catch (err) {
+    } catch (err) {
 
-    toast.error(
-      err.response?.data?.message ??
-      "Failed load reviews."
-    );
+      toast.error(
+        err.response?.data?.message ??
+        "Failed load reviews."
+      );
+
+    }
 
   }
 
-  }
-  
   async function submitReview() {
 
     try {
@@ -74,8 +74,8 @@ const [reviews, setReviews] = createStore([]);
   }
 
   onMount(() => {
-  loadReview();
-});
+    loadReview();
+  });
   return (
     <>
       <ReviewModal

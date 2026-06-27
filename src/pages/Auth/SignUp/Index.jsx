@@ -44,6 +44,7 @@ export default function SignUpIndex() {
         province: "",
         postal_code: "",
         additional_note: "",
+        store_name: "",
         is_default: false,
       },
       {
@@ -186,6 +187,7 @@ export default function SignUpIndex() {
             province: role.province,
             postal_code: role.postal_code,
             additional_note: role.additional_note,
+            store_name: role?.store_name,
             is_default: role.is_default
           }))
       };
