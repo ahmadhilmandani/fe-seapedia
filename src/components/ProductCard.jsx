@@ -33,7 +33,7 @@ export default function ProductCard(props) {
 
   return (
     <div
-      class="border border-muted-200 cursor-pointer transition-all group hover:-translate-y-1 bg-muted-100 w-full p-4 relative overflow-hidden pb-8"
+      class="border border-muted-200 cursor-pointer transition-all group hover:-translate-y-1 bg-muted-100 w-full p-4 relative overflow-hidden pb-8 rounded-sm"
       onClick={merged.onClickProp}
     >
       <div>

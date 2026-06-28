@@ -13,6 +13,9 @@ import MainLayout from "./layouts/MainLayout";
 import { AuthProvider } from "./stores/auth/auth-context.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import WalletIndex from "./pages/Wallet/WalletIndex.jsx";
+import StoreIndex from "./pages/Store/StoreIndex.jsx";
+import StoreEdit from "./pages/Store/StoreEdit.jsx";
+
 
 export default function App() {
   return (
@@ -25,7 +28,10 @@ export default function App() {
           <Route path="/about" component={About} />
           <Route path="/sign-in" component={SignInIndex} />
           <Route path="/sign-up" component={SignUpIndex} />
-
+          <Route
+            path="/store/:id"
+            component={StoreIndex}
+          />
           {/* Protected Routes */}
           <Route component={ProtectedRoute}>
             <Route
@@ -40,6 +46,12 @@ export default function App() {
               path="/transaction/:username"
               component={ProfileIndex}
             />
+
+            <Route
+              path="/edit-store/:id"
+              component={StoreEdit}
+            />
+
           </Route>
 
         </Route>

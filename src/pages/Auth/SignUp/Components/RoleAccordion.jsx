@@ -105,14 +105,14 @@ export default function RoleAccordion(props) {
               </div>
             </div>
             <Show when={ROLES_TYPE[mergedProps.role.key] == 'Seller'}>
-            <div class="min-w-65 w-full shrink">
-              <input
-                name="store_name"
-                value={mergedProps.role.store_name}
-                onInput={handleAddressChange}
-                placeholder="Store Name"
-              />
-            </div>
+              <div class="min-w-65 w-full shrink">
+                <input
+                  name="store_name"
+                  value={mergedProps.role.store_name}
+                  onInput={handleAddressChange}
+                  placeholder="Store Name"
+                />
+              </div>
             </Show>
             <div class="min-w-65 flex-1">
               <input

@@ -25,6 +25,8 @@ export default function Navbar() {
     return user?.roles?.find((r) => r.role_id === user.activeRole) || null;
   };
 
+  console.log(activeRole())
+
   return (
     <>
       <nav class="bg-white fixed w-full z-20 top-0 left-0 right-0 border-b border-muted-200">
@@ -111,6 +113,19 @@ export default function Navbar() {
                             </button>
                           </A>
                         </li>
+                        <Show when={activeRole().role_name == 'Seller'}>
+
+                          <li>
+                            <A href={`/store/${activeRole()?.store?.id}`}>
+                              <button
+                                type="button"
+                                class="w-full px-4 py-2 text-left text-sm hover:bg-primary-100"
+                              >
+                                My Store
+                              </button>
+                            </A>
+                          </li>
+                        </Show>
                       </ul>
 
                       {/* Divider */}
